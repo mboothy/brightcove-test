@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios'
 
 const API_URL = "https://api.bcovlive.io/v1/vods"
