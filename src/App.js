@@ -19,7 +19,7 @@ function App() {
     setKey(keyForm, setKeyForm(""));
   }
   const updateLiveJob = (e) => {
-    setLiveJob(keyForm, setLiveJobForm(""));
+    setLiveJob(liveJobForm, setLiveJobForm(""));
   }
 
   const sendClip = (e) => {
@@ -72,7 +72,7 @@ function App() {
           <p><b>Current Live Job:</b> {liveJob}</p>
         </div>
         <input value={liveJobForm} onChange={e => setLiveJobForm(e.target.value)}/> 
-        <button style={{marginLeft: '5px'}} onClick={e => updateLiveJob(e)}>Update Key</button>
+        <button style={{marginLeft: '5px'}} onClick={e => updateLiveJob(e)}>Update Job</button>
       </div>
       </div>
 
