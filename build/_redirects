@@ -1,12 +1,5 @@
 # The following redirect is intended for use with most SPAs that handle
 # routing internally.
-[[redirects]]
-  from = "/v1/vods"
-  to = "https://api.bcovlive.io/v1/vods"
-  status = 200
+#[[redirects]]
+/v1/vods    https://api.bcovlive.io/v1/vods
 
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"
