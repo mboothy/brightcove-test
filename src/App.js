@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
-const API_URL = "/v1/vods"
+const API_URL = "https://api.bcovlive.io/v1/vods"
 
 function App() {
   const [key, setKey] = useState(null)
@@ -28,6 +28,7 @@ function App() {
     const config = {
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           'Content-Type': 'application/json',
           'X-API-KEY': key
