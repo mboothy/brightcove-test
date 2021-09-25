@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
-const API_URL = "https://api.bcovlive.io/v1/vods"
+const API_URL = "/v1/vods"
 
 function App() {
   const [key, setKey] = useState(null)
@@ -27,6 +27,8 @@ function App() {
 
     const config = {
       headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           'Content-Type': 'application/json',
           'X-API-KEY': key
       }
@@ -51,7 +53,8 @@ function App() {
       ]
     }
     const res = axios.post(`${API_URL}`, body, config );
-    setResponse(res)
+    setResponse(JSON.stringify(res))
+    console.log(res)
   }
 
   return (
@@ -77,17 +80,19 @@ function App() {
         <div className="start">
           <h4 className="time">Start</h4>
           <h3 className="time">{startTime.toTimeString()}</h3>
+          <h3 className="time">Epoch: {startTime.getTime()}</h3>
           <button onClick={(e) => setStartTime(new Date())}>Event Wipe</button>
         </div>
         <div className="end">
           <h4 className="time">End</h4>
           <h3 className="time">{endTime.toTimeString()}</h3>
+          <h3 className="time">Epoch: {endTime.getTime()}</h3>
           <button onClick={(e) => sendClip(e)}>Last Results Clear</button>
         </div>
       </div>
       <div id="response">
         <h3>Response</h3>
-        <code>{JSON.stringify(response)}</code>
+        <code>{response}</code>
       </div>
     </div>
   );
